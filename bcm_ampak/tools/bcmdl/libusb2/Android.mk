@@ -31,7 +31,7 @@ ifeq ($(shell test $(PLATFORM_SDK_VERSION) -ge 26 && echo OK),OK)
 LOCAL_PROPRIETARY_MODULE := true
 endif
 
-LOCAL_MODULE_TAGS := debug optional
+LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
 include $(BUILD_STATIC_LIBRARY)
 
@@ -62,7 +62,7 @@ LOCAL_PROPRIETARY_MODULE := true
 endif
 
 LOCAL_STATIC_LIBRARIES := libusb2
-LOCAL_MODULE_TAGS := debug optional
+LOCAL_MODULE_TAGS := optional
 
 LOCAL_PRELINK_MODULE := false
 include $(BUILD_EXECUTABLE)
