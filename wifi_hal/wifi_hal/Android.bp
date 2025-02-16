@@ -1,0 +1,47 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+cc_library_static {
+    name: "libwifi-hal-mediatek",
+    vendor_available: true,
+    compile_multilib: "both",
+
+    srcs: [
+        "wifi_hal.cpp",
+        "rtt.cpp",
+        "common.cpp",
+        "cpp_bindings.cpp",
+        "gscan.cpp",
+        "link_layer_stats.cpp",
+        "wifi_logger.cpp",
+        "wifi_offload.cpp",
+    ],
+
+    include_dirs: [
+        "external/libnl/include",
+        "hardware/interfaces/wifi/legacy_headers/include/hardware_legacy",
+        "hardware/libhardware_legacy/include/hardware_legacy",
+        "system/core/libutils/include",
+        "system/logging/liblog/include",
+        "external/wpa_supplicant_8/src/drivers",
+    ],
+
+    cflags: [
+        "-Wall",
+        "-Werror",
+        "-Wno-format",
+        "-Wno-reorder",
+        "-Wno-unused-function",
+        "-Wno-unused-parameter",
+        "-Wno-unused-private-field",
+        "-Wno-unused-variable",
+    ] + select(soong_config_variable("AMLOGIC_WIFI_HAL", "BOARD_WIFI_VENDOR"), {
+        "realtek": ["-DREALTEK_WIFI_SUPPORT"],
+        "mtk": ["-DMTK_WIFI_SUPPORT"],
+        "qualcomm": ["-DQCA_WIFI_SUPPORT"],
+        default: [],
+    }),
+}
