@@ -53,7 +53,7 @@ LOCAL_SRC_FILES := \
 	wifi_logger.cpp \
 	wifi_offload.cpp
 
-LOCAL_MODULE := libwifi-hal-mt66xx
+LOCAL_MODULE := libwifi-hal-mediatek
 LOCAL_PROPRIETARY_MODULE := true
 
 include $(BUILD_STATIC_LIBRARY)
