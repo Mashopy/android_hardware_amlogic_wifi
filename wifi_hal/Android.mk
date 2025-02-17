@@ -1,3 +1,3 @@
-ifeq ($(BOARD_WLAN_DEVICE), MediaTek)
+ifeq ($(BOARD_WLAN_DEVICE), amlogic)
     include $(call all-subdir-makefiles)
 endif
